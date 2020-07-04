@@ -40,16 +40,16 @@ services:
             - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
         working_dir: ${APP_PATH_CONTAINER}
         command: 
-            # bash -c "
-            #     npm install && 
-            #     chown -R www-data ${APP_PATH_CONTAINER}/storage && 
-            #     chown -R www-data ${APP_PATH_CONTAINER}/bootstrap && 
-            #     npm run watch-poll"
             bash -c "
                 npm install && 
                 chown -R www-data ${APP_PATH_CONTAINER}/storage && 
                 chown -R www-data ${APP_PATH_CONTAINER}/bootstrap && 
-                tail -f /dev/null"
+                npm run dev"
+            # bash -c "
+            #     npm install && 
+            #     chown -R www-data ${APP_PATH_CONTAINER}/storage && 
+            #     chown -R www-data ${APP_PATH_CONTAINER}/bootstrap && 
+            #     tail -f /dev/null"
 
     composer:
         image: composer
